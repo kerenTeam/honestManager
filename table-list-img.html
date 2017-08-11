@@ -25,7 +25,12 @@
     <div class="am-g tpl-g">
         
 
-
+            <div class="container-fluid am-cf">
+                    <div class="am-u-sm-12 am-u-md-12 am-u-lg-9">
+                        <div class="page-header-heading"><span class="am-icon-user-secret page-header-heading-icon"></span> 管理员 | 用户 <small> - 权限管理 </small></div>
+                        <p class="page-header-description">这个列表是用用来。dosage 这个列表是用用来。dosage 这个列表是用用来。dosage 这个列表是用用来。dosage</p>
+                    </div>
+                </div>
 
         <!-- 内容区域 -->
         <div class="tpl-content-wrapper">
@@ -55,14 +60,14 @@
                                 <div class="am-u-sm-12 am-u-md-6 am-u-lg-3">
                                     <div class="am-form-group tpl-table-list-select">
                                         <select data-am-selected="{btnSize: 'sm'}">
-              <option value="option1">所有类别</option>
-              <option value="option2">IT业界</option>
-              <option value="option3">数码产品</option>
-              <option value="option3">笔记本电脑</option>
-              <option value="option3">平板电脑</option>
-              <option value="option3">只能手机</option>
-              <option value="option3">超极本</option>
-            </select>
+                                        <option value="option1">所有类别</option>
+                                        <option value="option2">IT业界</option>
+                                        <option value="option3">数码产品</option>
+                                        <option value="option3">笔记本电脑</option>
+                                        <option value="option3">平板电脑</option>
+                                        <option value="option3">只能手机</option>
+                                        <option value="option3">超极本</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="am-u-sm-12 am-u-md-12 am-u-lg-3">
@@ -219,6 +224,191 @@
                 </div>
             </div>
         </div>
+
+
+
+           <!-- 弹框开始 -->
+           
+           
+           
+           
+                           <div class="am-modal am-modal-confirm" tabindex="-1" id="my-insert-confirm">
+                               <div class="am-modal-dialog">
+                                   <div class="am-modal-hd">添加子权限</div>
+                                   <div class="am-modal-bd">
+           
+                                       <div class="am-form-group am-cf">
+                                           <label class="am-u-sm-3 am-form-label">权限名 ：</label>
+                                           <div class="am-u-sm-8 am-u-end">
+                                               <!-- onblur="validate(this,2,15,0)" -->
+                                               <input type="text" id="addtName" name="name" value="" required="" minlength="2" maxlength="15">
+                                           </div>
+                                           <small class="am-u-sm-1 red redtips0" style="display: none;"><i class="am-icon-close"></i></small>
+                                           <small class="am-u-sm-1 green blacktips0" style="display: none;"><i class="am-icon-check"></i></small>
+                                       </div>
+                                       <div class="am-form-group am-cf">
+                                           <label class="am-u-sm-3 am-form-label">权限 ：</label>
+                                           <div class="am-u-sm-8 am-u-end">
+                                               <!-- onblur="validate(this,2,50,1)" -->
+                                               <input type="text" id="addController" name="controller" value="" required="" minlength="2" maxlength="50">
+                                           </div>
+                                           <small class="am-u-sm-1 red redtips1" style="display: none;"><i class="am-icon-close"></i></small>
+                                           <small class="am-u-sm-1 green blacktips1" style="display: none;"><i class="am-icon-check"></i></small>
+                                       </div>
+           
+                                   </div>
+                                   <div class="am-modal-footer">
+                                       <span class="am-modal-btn" data-am-modal-cancel>取消</span>
+                                       <span class="am-modal-btn" data-am-modal-confirm>确定</span>
+                                   </div>
+                               </div>
+                           </div>
+                           <script>
+                               // TODO 添加子权限
+                               $(function () {
+                                   $('#doc-modal-list').find('.insert').add('#doc-confirm-toggle').
+                                       on('click', function () {
+                                           $('#my-insert-confirm').modal({
+                                               relatedTarget: this,
+                                               onConfirm: function (options) {
+                                                   var $link = $(this.relatedTarget).one('a');
+                                                   var addtName = $('#addtName').val();
+                                                   var addController = $('#addController').val();
+           
+                                                   // var msg = $link.length ? '你要删除的链接 ID 为 ' + $link.data('id')+ addtName+ addController:
+                                                   //     'mull';
+                                                   // alert(msg);
+                                                   var data = { updateName: updateName, updateController: updateController, id: $link.data('id') }
+                                                   console.log(data)
+                                                   $.post("URL", data, function (result) {
+                                                       // $("span").html(result);
+                                                       window.location.reload()
+                                                   });
+                                               },
+                                               closeOnConfirm: false,
+                                               onCancel: function () {
+                                                   // alert('onCancel');
+                                               }
+                                           });
+                                       });
+                               });
+                           </script>
+           
+           
+           
+           
+           
+                           <div class="am-modal am-modal-confirm" tabindex="-1" id="my-update-confirm">
+                               <div class="am-modal-dialog">
+                                   <div class="am-modal-hd">修改权限</div>
+                                   <div class="am-modal-bd">
+                                       <div class="am-form-group am-cf">
+                                           <label class="am-u-sm-3 am-form-label">权限名 ：</label>
+                                           <div class="am-u-sm-8 am-u-end">
+                                               <!-- onblur="validate(this,2,15,0)" -->
+                                               <input type="text" id="updateName" name="name" value="" required="" minlength="2" maxlength="15">
+                                           </div>
+                                           <small class="am-u-sm-1 red redtips0" style="display: none;"><i class="am-icon-close"></i></small>
+                                           <small class="am-u-sm-1 green blacktips0" style="display: none;"><i class="am-icon-check"></i></small>
+                                       </div>
+                                       <div class="am-form-group am-cf">
+                                           <label class="am-u-sm-3 am-form-label">权限 ：</label>
+                                           <div class="am-u-sm-8 am-u-end">
+                                               <!-- onblur="validate(this,2,50,1)" -->
+                                               <input type="text" id="updateController" name="controller" value="" required="" minlength="2" maxlength="50">
+                                           </div>
+                                           <small class="am-u-sm-1 red redtips1" style="display: none;"><i class="am-icon-close"></i></small>
+                                           <small class="am-u-sm-1 green blacktips1" style="display: none;"><i class="am-icon-check"></i></small>
+                                       </div>
+                                   </div>
+                                   <div class="am-modal-footer">
+                                       <span class="am-modal-btn" data-am-modal-cancel>取消</span>
+                                       <span class="am-modal-btn" data-am-modal-confirm>确定</span>
+                                   </div>
+                               </div>
+                           </div>
+                           <script>
+                               // TODO 修改
+                               $(function () {
+                                   $('#doc-modal-list').find('.update').add('#doc-confirm-toggle').
+                                       on('click', function () {
+                                           $('#updateName').val($(this).parentsUntil('tbody').find('.qxname span').html())
+                                           $('#updateController').val($(this).parentsUntil('tbody').find('.qxctlr').html())
+                                           $('#my-update-confirm').modal({
+                                               relatedTarget: this,
+                                               onConfirm: function (options) {
+                                                   var $link = $(this.relatedTarget).one('a');
+                                                   var updateName = $('#updateName').val();
+                                                   var updateController = $('#updateController').val();
+                                                   // var msg = $link.length ? '你要删除的链接 ID 为 ' + $link.data('id') :
+                                                   //     'mull';
+                                                   // alert(msg);
+                                                   var data = { updateName: updateName, updateController: updateController, id: $link.data('id') }
+                                                   console.log(data)
+                                                   $.post("URL", data, function (result) {
+                                                       $("span").html(result);
+                                                       window.location.reload()
+                                                   });
+                                               },
+           
+                                               closeOnConfirm: false,
+                                               onCancel: function () {
+                                                   // alert('onCancel');
+                                               }
+                                           });
+                                       });
+                               });
+                           </script>
+           
+           
+           
+           
+                           <div class="am-modal am-modal-confirm" tabindex="-1" id="my-delete-confirm">
+                               <div class="am-modal-dialog">
+                                   <div class="am-modal-hd">删除提示</div>
+                                   <div class="am-modal-bd">
+                                       你，确定要删除这条记录吗？
+                                   </div>
+                                   <div class="am-modal-footer">
+                                       <span class="am-modal-btn" data-am-modal-cancel>取消</span>
+                                       <span class="am-modal-btn" data-am-modal-confirm>确定</span>
+                                   </div>
+                               </div>
+                           </div>
+           
+           
+                           <script>
+                               // TODO 删除
+                               $(function () {
+                                   $('#doc-modal-list').find('.delete').add('#doc-confirm-toggle').
+                                       on('click', function () {
+                                           $('#my-delete-confirm').modal({
+                                               relatedTarget: this,
+                                               onConfirm: function (options) {
+                                                   var $link = $(this.relatedTarget).one('a');
+                                                   // var msg = $link.length ? '你要删除的链接 ID 为 ' + $link.data('id') :
+                                                   //     'mull';
+                                                   // alert(msg);
+           
+                                                   $.post("URL", { id: $link.data('id') }, function (result) {
+                                                       // $("span").html(result);
+                                                       window.location.reload()
+                                                   });
+                                               },
+                                               closeOnConfirm: false,
+                                               onCancel: function () {
+                                                   // alert('onCancel');
+                                               }
+                                           });
+                                       });
+                               });
+                           </script>
+           
+                           <!-- 弹框结束 -->
+           
+
+
+
     </div>
     </div>
     <script src="assets/js/amazeui.min.js"></script>
