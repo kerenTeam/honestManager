@@ -14,164 +14,124 @@
         <link rel="stylesheet" href="../../assets/css/amazeui.min.css" />
         <link rel="stylesheet" href="../../assets/css/app.css">
         <script src="../../assets/js/jquery-1.7.2.min.js"></script>
+        <style>
+            label{color: #e6e6e6}
+             fieldset {
+                padding: 2.15em 1.325em 1.95em;
+            } 
+        </style>
     </head>
     <body data-type="widgets">
         <script src="../../assets/js/theme.js"></script>
 
-                    <div class="container-fluid am-cf">
-                        <div class="am-u-sm-12 am-u-md-12 am-u-lg-9">
-                            <div class="page-header-heading"><span class="am-icon-user-secret page-header-heading-icon"></span> 管理员 | 用户 <small> - 用户列表 - 安评师 </small></div>
-                            <p class="page-header-description">这个列表是用用来。dosage 这个列表是用用来。dosage 这个列表是用用来。dosage 这个列表是用用来。dosage</p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="am-u-sm-12 am-u-md-12 am-u-lg-12">
-                            <div class="widget am-cf">
-                                <div class="widget-head am-cf">
-                                    <div class="widget-title  am-cf">权限列表</div>
-                                </div>
-                                <br>
-                                <!-- <div class="am-u-sm-12 am-u-md-6 am-u-lg-6">
+            <div class="container-fluid am-cf">
+                <div class="am-u-sm-12 am-u-md-12 am-u-lg-9">
+                    <div class="page-header-heading"><span class="am-icon-user-secret page-header-heading-icon"></span> 管理员 | 用户 <small> - 用户列表 - 安评师 </small></div>
+                    <p class="page-header-description">这个列表是用用来。dosage 这个列表是用用来。dosage 这个列表是用用来。dosage 这个列表是用用来。dosage</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="am-u-sm-12 am-u-md-12 am-u-lg-12">
+                    <div class="widget am-cf">
+                        <div class="am-u-sm-12">
+                            <form action="" class="am-form" data-am-validator>
+                                <fieldset>
                                     <div class="am-form-group">
-                                        <div class="am-btn-toolbar">
-                                            <div class="am-btn-group am-btn-group-xs">
-                                                <a id="getValue" class="am-btn am-btn-secondary"><span class="am-icon-plus"></span> 提交</a>
-                                            </div>
-                                        </div>
+                                        <label for="doc-vld-name-2">姓名: </label>
+                                        <input type="text" id="doc-vld-name-2" minlength="2" placeholder="输入姓名（至少 2 个字符）" required/>
                                     </div>
-                                </div> -->
-                                <div class="am-u-sm-12">
-                                    <!-- <table width="100%" class="am-table am-table-compact am-text-nowrap tpl-table-black ">
-                                        <thead>
-                                            <tr>
-                                                <th>权限名 </th>
-                                                <th>权限 </th>
-                                                <th class="tablecheck">
-                                                    <div class="am-btn-group am-btn-group-xs">
-                                                        <a  class="am-btn am-btn-success"><input type="checkbox" id="all"> 全选 </a>
-                                                        <a  class="am-btn am-btn-secondary"><input type="checkbox" id="reverse"> 反选 </a>
-                                                    </div>
-                                                </th>
-                                                
-                                            </tr>
-                                        </thead>
-                                        <tbody id="list">
-                                            <tr class="trClass">
-                                                <td class="am-text-middle">├系统设置</td>
-                                                <td class="am-text-middle">systemSet</td>
-                                                <td class="am-text-middle">
-                                                    <input type="checkbox" value="1" class="commentBox" name="commentBox" >
-                                                </td>
-                                            </tr>
-                                            <tr class="trClass">
-                                                <td class="am-text-middle">│ &nbsp;&nbsp; &nbsp;&nbsp; └─ 权限管理</td>
-                                                <td class="am-text-middle">systemSet/SystemSet/memberLimit</td>
-                                                <td class="am-text-middle">
-                                                    <input type="checkbox" value="11" class="commentBox" name="commentBox" >
-                                                </td>
-                                            </tr>
-                                            <tr class="trClass">
-                                                <td class="am-text-middle">│ &nbsp;&nbsp; &nbsp;&nbsp; └─ APP设置</td>
-                                                <td class="am-text-middle">systemSet/SystemSet/app_version</td>
-                                                <td class="am-text-middle">
-                                                    <input type="checkbox" value="53" class="commentBox" name="commentBox" >
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                        
-                                    </table> -->
+                                    <div class="am-form-group">
+                                        <label>性别： </label>
+                                        <label class="am-radio-inline">
+                                            <input type="radio"  value="" name="docVlGender" required> 男
+                                        </label>
+                                        <label class="am-radio-inline">
+                                            <input type="radio" name="docVlGender"> 女
+                                        </label>
+                                        <label class="am-radio-inline">
+                                            <input type="radio" name="docVlGender"> 其他
+                                        </label>
+                                    </div>
+                                    <div class="am-form-group">
+                                        <label for="doc-vld-age-2">证书编号：</label>
+                                        <input type="number" class=""  id="doc-vld-age-2" placeholder="输入证书编号" required />
+                                    </div>
+                                    <div class="am-form-group">
+                                        <label for="doc-select-1">级别</label>
+                                        <select id="doc-select-1">
+                                            <option value="option1">一级</option>
+                                            <option value="option2">二级</option>
+                                            <option value="option3">三级</option>
+                                        </select>
+                                        <span class="am-form-caret"></span>
+                                    </div>
+                                    <div class="am-form-group">
+                                        <label for="doc-vld-age-2">从业编号：</label>
+                                        <input type="number" class=""  id="doc-vld-age-2" placeholder="输入证书编号" required />
+                                    </div>
+                                    <div class="am-form-group">
+                                        <label for="doc-select-1">注册性质</label>
+                                        <select id="doc-select-1">
+                                            <option value="option1">专职</option>
+                                            <option value="option2">兼职</option>
+                                        </select>
+                                        <span class="am-form-caret"></span>
+                                    </div>
+                                    <div class="am-form-group">
+                                        <label for="doc-vld-name-2">单位名称: </label>
+                                        <input type="text" id="doc-vld-name-2" minlength="2" placeholder="输入姓名（至少 2 个字符）" required/>
+                                    </div>
 
-                                    <form action="" class="am-form" data-am-validator>
-                                            <fieldset>
-                                              <legend>JS 表单验证</legend>
-                                              <div class="am-form-group">
-                                                <label for="doc-vld-name-2">用户名：</label>
-                                                <input type="text" id="doc-vld-name-2" minlength="3" placeholder="输入用户名（至少 3 个字符）" required/>
-                                              </div>
-                                          
-                                              <div class="am-form-group">
-                                                <label for="doc-vld-email-2">邮箱：</label>
-                                                <input type="email" id="doc-vld-email-2" placeholder="输入邮箱" required/>
-                                              </div>
-                                          
-                                              <div class="am-form-group">
-                                                <label for="doc-vld-url-2">网址：</label>
-                                                <input type="url" id="doc-vld-url-2" placeholder="输入网址" required/>
-                                              </div>
-                                          
-                                              <div class="am-form-group">
-                                                <label for="doc-vld-age-2">年龄：</label>
-                                                <input type="number" class=""  id="doc-vld-age-2" placeholder="输入年龄  18-120" min="18" max="120" required />
-                                              </div>
-                                          
-                                              <div class="am-form-group">
-                                                <label class="am-form-label">爱好：</label>
-                                                <label class="am-checkbox-inline">
-                                                  <input type="checkbox" value="橘子" name="docVlCb" minchecked="2" maxchecked="4" required> 橘子
-                                                </label>
-                                                <label class="am-checkbox-inline">
-                                                  <input type="checkbox" value="苹果" name="docVlCb"> 苹果
-                                                </label>
-                                                <label class="am-checkbox-inline">
-                                                  <input type="checkbox" value="菠萝" name="docVlCb"> 菠萝
-                                                </label>
-                                                <label class="am-checkbox-inline">
-                                                  <input type="checkbox" value="芒果" name="docVlCb"> 芒果
-                                                </label>
-                                                <label class="am-checkbox-inline">
-                                                  <input type="checkbox" value="香蕉" name="docVlCb"> 香蕉
-                                                </label>
-                                              </div>
-                                          
-                                              <div class="am-form-group">
-                                                <label>性别： </label>
-                                                <label class="am-radio-inline">
-                                                  <input type="radio"  value="" name="docVlGender" required> 男
-                                                </label>
-                                                <label class="am-radio-inline">
-                                                  <input type="radio" name="docVlGender"> 女
-                                                </label>
-                                                <label class="am-radio-inline">
-                                                  <input type="radio" name="docVlGender"> 其他
-                                                </label>
-                                              </div>
-                                          
-                                              <div class="am-form-group">
-                                                <label for="doc-select-1">下拉单选框</label>
-                                                <select id="doc-select-1" required>
-                                                  <option value="">-=请选择一项=-</option>
-                                                  <option value="option1">选项一...</option>
-                                                  <option value="option2">选项二.....</option>
-                                                  <option value="option3">选项三........</option>
-                                                </select>
-                                                <span class="am-form-caret"></span>
-                                              </div>
-                                          
-                                              <div class="am-form-group">
-                                                <label for="doc-select-2">多选框</label>
-                                                <select multiple class="" id="doc-select-2" minchecked="2" maxchecked="4">
-                                                  <option>1</option>
-                                                  <option>2</option>
-                                                  <option>3</option>
-                                                  <option>4</option>
-                                                  <option>5</option>
-                                                </select>
-                                              </div>
-                                          
-                                              <div class="am-form-group">
-                                                <label for="doc-vld-ta-2">评论：</label>
-                                                <textarea id="doc-vld-ta-2" minlength="10" maxlength="100"></textarea>
-                                              </div>
-                                          
-                                              <button class="am-btn am-btn-secondary" type="submit">提交</button>
-                                            </fieldset>
-                                          </form>
 
-                                </div>
-                            </div>
+
+
+
+
+                                    <div class="am-form-group">
+                                        <label for="doc-vld-email-2">邮箱：</label>
+                                        <input type="email" id="doc-vld-email-2" placeholder="输入邮箱" required/>
+                                    </div>
+                                    <div class="am-form-group">
+                                        <label for="doc-vld-url-2">网址：</label>
+                                        <input type="url" id="doc-vld-url-2" placeholder="输入网址" required/>
+                                    </div>
+                                    <div class="am-form-group">
+                                        <label for="doc-vld-age-2">年龄：</label>
+                                        <input type="number" class=""  id="doc-vld-age-2" placeholder="输入年龄  18-120" min="18" max="120" required />
+                                    </div>
+                                    <div class="am-form-group">
+                                        <label class="am-form-label">爱好：</label>
+                                        <label class="am-checkbox-inline">
+                                            <input type="checkbox" value="橘子" name="docVlCb" minchecked="2" maxchecked="4" required> 橘子
+                                        </label>
+                                        <label class="am-checkbox-inline">
+                                            <input type="checkbox" value="苹果" name="docVlCb"> 苹果
+                                        </label>
+                                        <label class="am-checkbox-inline">
+                                            <input type="checkbox" value="菠萝" name="docVlCb"> 菠萝
+                                        </label>
+                                        <label class="am-checkbox-inline">
+                                            <input type="checkbox" value="芒果" name="docVlCb"> 芒果
+                                        </label>
+                                        <label class="am-checkbox-inline">
+                                            <input type="checkbox" value="香蕉" name="docVlCb"> 香蕉
+                                        </label>
+                                    </div>
+                                    
+                                    
+                                    <div class="am-form-group">
+                                        <label for="doc-vld-ta-2">评论：</label>
+                                        <textarea id="doc-vld-ta-2" minlength="10" maxlength="100"></textarea>
+                                    </div>
+                                    
+                                    <button class="am-btn am-btn-secondary" type="submit">提交</button>
+                                </fieldset>
+                            </form>
                         </div>
                     </div>
-                    
+                </div>
+            </div>
+                
 
     </body>
 </html>
