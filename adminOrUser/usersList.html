@@ -19,7 +19,11 @@
     <script src="../assets/js/jquery.min.js"></script>
 
 
-
+    <style>
+        #doc-modal-list .modal {
+            border: none !important;
+        }
+    </style>
 </head>
 
 <body data-type="widgets">
@@ -76,8 +80,8 @@
                                     <div class="am-input-group am-input-group-sm tpl-form-border-form cl-p">
                                         <input type="text" class="am-form-field ">
                                         <span class="am-input-group-btn">
-            <button class="am-btn  am-btn-default am-btn-success tpl-table-list-field am-icon-search" type="button"></button>
-          </span>
+                                    <button class="am-btn  am-btn-default am-btn-success tpl-table-list-field am-icon-search" type="button"></button>
+                                </span>
                                     </div>
                                 </div>
 
@@ -92,7 +96,7 @@
                                                 <th width='8%'>专兼职</th>
                                                 <th width='10%'>QQ</th>
                                                 <th width='15%'>邮箱</th>
-                                                <th >详细信息</th>
+                                                <th>详细信息</th>
                                                 <th width='6%'>操作</th>
                                             </tr>
                                         </thead>
@@ -103,38 +107,96 @@
                                                 </td>
                                                 <td class="am-text-middle">刘东</td>
                                                 <td class="am-text-middle">技术人员</td>
-                                                <td class="am-text-middle"> <span style="color:aquamarine">在职</span> <!-- <span style="color:brown">| 离职</span> -->  </td>
-                                                <td class="am-text-middle"> <span style="color:aquamarine">专职</span> <!--  <span style="color:bisque">| 兼职</span>-->   </td>
+                                                <td class="am-text-middle"> <span style="color:aquamarine">在职</span>
+                                                    <!-- <span style="color:brown">| 离职</span> --></td>
+                                                <td class="am-text-middle"> <span style="color:aquamarine">专职</span>
+                                                    <!--  <span style="color:bisque">| 兼职</span>--></td>
                                                 <td class="am-text-middle">304278936</td>
                                                 <td class="am-text-middle">304278936@qq.com</td>
 
-                                                <td class="am-text-middle"> 
-                                                    <div class="tpl-table-black-operation"> 
+                                                <td class="am-text-middle">
+                                                    <div class="tpl-table-black-operation">
 
-                                                        <a  class="modal" data-id="./userInfomation/info.html?id=001" data-am-modal="{target: '#userInfomation-modal', closeViaDimmer: 0, width: 950}"  style="color:aqua "> <i class="am-icon-pencil"></i> 详细信息 </a> 
-                                                        <a  class="modal" data-id="./userInfomation/correspondence.html?id=001" data-am-modal="{target: '#userInfomation-modal', closeViaDimmer: 0, width: 950}"  style="color:aquamarine"> <i class="am-icon-pencil"></i> 详细通讯 </a>  
-                                                        <a  class="modal" data-id="./userInfomation/laborContract.html?id=001" data-am-modal="{target: '#userInfomation-modal', closeViaDimmer: 0, width: 950}"  style="color:azure "> <i class="am-icon-pencil"></i> 劳动合同 </a> 
-                                                        <a  class="modal" data-id="./userInfomation/education.html?id=001" data-am-modal="{target: '#userInfomation-modal', closeViaDimmer: 0, width: 950}"  style="color:tomato"> <i class="am-icon-pencil"></i> 学历信息 </a> 
-                                                        <a  class="modal" data-id="./userInfomation/zhiwei.html?id=001" data-am-modal="{target: '#userInfomation-modal', closeViaDimmer: 0, width: 950}"  style="color:yellowgreen"> <i class="am-icon-pencil"></i> 职卫师 </a> 
-                                                        <a  class="modal" data-id="./userInfomation/zhuan.html?id=001" data-am-modal="{target: '#userInfomation-modal', closeViaDimmer: 0, width: 950}"  style="color:blueviolet"> <i class="am-icon-pencil"></i> 注安师 </a> 
-                                                        <a  class="modal" data-id="./userInfomation/anpin.html?id=001" data-am-modal="{target: '#userInfomation-modal', closeViaDimmer: 0, width: 950}"  style="color:cadetblue"> <i class="am-icon-pencil"></i> 安评师 </a> 
-                                                        <a  class="modal" data-id="./userInfomation/expert.html?id=001" data-am-modal="{target: '#userInfomation-modal', closeViaDimmer: 0, width: 950}"  style="color:darksalmon"> <i class="am-icon-pencil"></i> 专 家  </a> 
+                                                        <a class="modal" data-id="./userInfomation/info.html?id=001" data-am-modal="{target: '#userInfomation-modal', closeViaDimmer: 0, width: 950}"
+                                                            style="color:aqua "> <i class="am-icon-pencil"></i> 详细信息 </a>
+                                                        <a class="modal" data-id="./userInfomation/correspondence.html?id=001" data-am-modal="{target: '#userInfomation-modal', closeViaDimmer: 0, width: 950}"
+                                                            style="color:aquamarine"> <i class="am-icon-pencil"></i> 详细通讯 </a>
+                                                        <a class="modal" data-id="./userInfomation/laborContract.html?id=001" data-am-modal="{target: '#userInfomation-modal', closeViaDimmer: 0, width: 950}"
+                                                            style="color:azure "> <i class="am-icon-pencil"></i> 劳动合同 </a>
+                                                        <a class="modal" data-id="./userInfomation/education.html?id=001" data-am-modal="{target: '#userInfomation-modal', closeViaDimmer: 0, width: 950}"
+                                                            style="color:tomato"> <i class="am-icon-pencil"></i> 学历信息 </a>
+                                                        <a class="modal" data-id="./userInfomation/zhiwei.html?id=001" data-am-modal="{target: '#userInfomation-modal', closeViaDimmer: 0, width: 950}"
+                                                            style="color:yellowgreen"> <i class="am-icon-pencil"></i> 职卫师 </a>
+                                                        <a class="modal" data-id="./userInfomation/zhuan.html?id=001" data-am-modal="{target: '#userInfomation-modal', closeViaDimmer: 0, width: 950}"
+                                                            style="color:blueviolet"> <i class="am-icon-pencil"></i> 注安师 </a>
+                                                        <a class="modal" data-id="./userInfomation/anpin.html?id=001" data-am-modal="{target: '#userInfomation-modal', closeViaDimmer: 0, width: 950}"
+                                                            style="color:cadetblue"> <i class="am-icon-pencil"></i> 安评师 </a>
+                                                        <a class="modal" data-id="./userInfomation/expert.html?id=001" data-am-modal="{target: '#userInfomation-modal', closeViaDimmer: 0, width: 950}"
+                                                            style="color:darksalmon"> <i class="am-icon-pencil"></i> 专 家  </a>
 
-                                                    </div> 
-                                                </td> 
+                                                    </div>
+                                                </td>
 
                                                 <td class="am-text-middle">
                                                     <div class="tpl-table-black-operation">
-                                                        <a href="javascript:;" class="tpl-table-black-operation-del">
+
+                                                        <a href="javascript:;" data-id="1" class=" delete tpl-table-black-operation-del">
                                                             <i class="am-icon-trash"></i> 删除
                                                         </a>
                                                     </div>
                                                 </td>
                                             </tr>
                                             <!-- <tr class="even gradeC"> -->
-                                            
-                                           
-     
+
+                                            <tr class="even gradeC">
+                                                <td>
+                                                    <img src="../assets/img/a.jpeg " class="tpl-table-line-img" style="width:3.5em" alt="">
+                                                </td>
+                                                <td class="am-text-middle">刘东</td>
+                                                <td class="am-text-middle">技术人员</td>
+                                                <td class="am-text-middle"> <span style="color:aquamarine">在职</span>
+                                                    <!-- <span style="color:brown">| 离职</span> --></td>
+                                                <td class="am-text-middle"> <span style="color:aquamarine">专职</span>
+                                                    <!--  <span style="color:bisque">| 兼职</span>--></td>
+                                                <td class="am-text-middle">304278936</td>
+                                                <td class="am-text-middle">304278936@qq.com</td>
+
+                                                <td class="am-text-middle">
+                                                    <div class="tpl-table-black-operation">
+
+
+                                                        <a class="modal" data-id="./userInfomation/info.html?id=001" data-am-modal="{target: '#userInfomation-modal', closeViaDimmer: 0, width: 950}"
+                                                            style=" color:aqua "> <i class="am-icon-pencil"></i> 详细信息 </a>
+                                                        <a class="modal" data-id="./userInfomation/correspondence.html?id=001" data-am-modal="{target: '#userInfomation-modal', closeViaDimmer: 0, width: 950}"
+                                                            style=" color:aquamarine"> <i class="am-icon-pencil"></i> 详细通讯 </a>
+                                                        <a class="modal" data-id="./userInfomation/laborContract.html?id=001" data-am-modal="{target: '#userInfomation-modal', closeViaDimmer: 0, width: 950}"
+                                                            style=" color:azure "> <i class="am-icon-pencil"></i> 劳动合同 </a>
+                                                        <a class="modal" data-id="./userInfomation/education.html?id=001" data-am-modal="{target: '#userInfomation-modal', closeViaDimmer: 0, width: 950}"
+                                                            style=" color:tomato"> <i class="am-icon-pencil"></i> 学历信息 </a>
+                                                        <a class="modal" data-id="./userInfomation/zhiwei.html?id=001" data-am-modal="{target: '#userInfomation-modal', closeViaDimmer: 0, width: 950}"
+                                                            style=" color:rgba(243, 243, 243, 0.15)"> <i class="am-icon-pencil"></i> 职卫师 </a>
+                                                        <a class="modal" data-id="./userInfomation/zhuan.html?id=001" data-am-modal="{target: '#userInfomation-modal', closeViaDimmer: 0, width: 950}"
+                                                            style=" color:rgba(243, 243, 243, 0.15)"> <i class="am-icon-pencil"></i> 注安师 </a>
+                                                        <a class="modal" data-id="./userInfomation/anpin.html?id=001" data-am-modal="{target: '#userInfomation-modal', closeViaDimmer: 0, width: 950}"
+                                                            style=" color:rgba(243, 243, 243, 0.15)"> <i class="am-icon-pencil"></i> 安评师 </a>
+                                                        <a class="modal" data-id="./userInfomation/expert.html?id=001" data-am-modal="{target: '#userInfomation-modal', closeViaDimmer: 0, width: 950}"
+                                                            style=" color:rgba(243, 243, 243, 0.15)"> <i class="am-icon-pencil"></i> 专 家  </a>
+
+                                                    </div>
+                                                </td>
+
+                                                <td class="am-text-middle">
+                                                    <div class="tpl-table-black-operation">
+
+                                                        <a href="javascript:;" data-id="1" class=" delete tpl-table-black-operation-del">
+                                                                        <i class="am-icon-trash"></i> 删除
+                                                                    </a>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+
+
                                             <!-- more data -->
                                         </tbody>
                                     </table>
@@ -169,32 +231,206 @@
 
 
         <div class="am-modal am-modal-no-btn" tabindex="-1" id="userInfomation-modal">
-                <div class="am-modal-dialog" style="background:rgb(58, 65, 68) !important ">
-                  <div class="am-modal-hd" style="color:aliceblue  !important"> 详细信息 
-                    <a href="javascript: void(0)" class="am-close am-close-spin"  style="color:#fff !important" data-am-modal-close>&times;</a>
-                  </div>
-                  <div class="am-modal-bd">
-                    
-                    <iframe src="./userInfomation/info.html" name="text" target="_self" style="height:100vh;width:99%;overflow-y: scroll;" > </iframe>
-
-                  </div>
+            <div class="am-modal-dialog" style="background:rgb(58, 65, 68) !important ">
+                <div class="am-modal-hd" style="color:aliceblue  !important"> 详细信息
+                    <a href="javascript: void(0)" class="am-close am-close-spin" style="color:#fff !important" data-am-modal-close>&times;</a>
                 </div>
+                <div class="am-modal-bd">
+
+                    <iframe src="./userInfomation/info.html" name="text" target="_self" style="height:100vh;width:99%;overflow-y: scroll;"> </iframe>
+
+                </div>
+            </div>
         </div>
 
         <script>
-
             $(function () {
                 $('#doc-modal-list').find('.modal')
                     .on('click', function () {
-                        $('iframe').attr('src',$(this).attr("data-id")); 
+                        $('iframe').attr('src', $(this).attr("data-id"));
                     });
             });
-
         </script>
 
-        
 
 
+
+
+
+
+        <div class="am-modal am-modal-confirm" tabindex="-1" id="my-insert-confirm">
+            <div class="am-modal-dialog">
+                <div class="am-modal-hd">添加子权限</div>
+                <div class="am-modal-bd">
+
+                    <div class="am-form-group am-cf">
+                        <label class="am-u-sm-3 am-form-label">权限名 ：</label>
+                        <div class="am-u-sm-8 am-u-end">
+                            <!-- onblur="validate(this,2,15,0)" -->
+                            <input type="text" id="addtName" name="name" value="" required="" minlength="2" maxlength="15">
+                        </div>
+                        <small class="am-u-sm-1 red redtips0" style="display: none;"><i class="am-icon-close"></i></small>
+                        <small class="am-u-sm-1 green blacktips0" style="display: none;"><i class="am-icon-check"></i></small>
+                    </div>
+                    <div class="am-form-group am-cf">
+                        <label class="am-u-sm-3 am-form-label">权限 ：</label>
+                        <div class="am-u-sm-8 am-u-end">
+                            <!-- onblur="validate(this,2,50,1)" -->
+                            <input type="text" id="addController" name="controller" value="" required="" minlength="2" maxlength="50">
+                        </div>
+                        <small class="am-u-sm-1 red redtips1" style="display: none;"><i class="am-icon-close"></i></small>
+                        <small class="am-u-sm-1 green blacktips1" style="display: none;"><i class="am-icon-check"></i></small>
+                    </div>
+
+                </div>
+                <div class="am-modal-footer">
+                    <span class="am-modal-btn" data-am-modal-cancel>取消</span>
+                    <span class="am-modal-btn" data-am-modal-confirm>确定</span>
+                </div>
+            </div>
+        </div>
+        <script>
+            // TODO 添加子权限
+            $(function () {
+                $('#doc-modal-list').find('.insert').add('#doc-confirm-toggle').
+                    on('click', function () {
+                        $('#my-insert-confirm').modal({
+                            relatedTarget: this,
+                            onConfirm: function (options) {
+                                var $link = $(this.relatedTarget).one('a');
+                                var addtName = $('#addtName').val();
+                                var addController = $('#addController').val();
+
+                                // var msg = $link.length ? '你要删除的链接 ID 为 ' + $link.data('id')+ addtName+ addController:
+                                //     'mull';
+                                // alert(msg);
+                                var data = { updateName: updateName, updateController: updateController, id: $link.data('id') }
+                                console.log(data)
+                                $.post("URL", data, function (result) {
+                                    // $("span").html(result);
+                                    window.location.reload()
+                                });
+                            },
+                            closeOnConfirm: false,
+                            onCancel: function () {
+                                // alert('onCancel');
+                            }
+                        });
+                    });
+            });
+        </script>
+
+
+
+
+
+        <div class="am-modal am-modal-confirm" tabindex="-1" id="my-update-confirm">
+            <div class="am-modal-dialog">
+                <div class="am-modal-hd">修改权限</div>
+                <div class="am-modal-bd">
+                    <div class="am-form-group am-cf">
+                        <label class="am-u-sm-3 am-form-label">权限名 ：</label>
+                        <div class="am-u-sm-8 am-u-end">
+                            <!-- onblur="validate(this,2,15,0)" -->
+                            <input type="text" id="updateName" name="name" value="" required="" minlength="2" maxlength="15">
+                        </div>
+                        <small class="am-u-sm-1 red redtips0" style="display: none;"><i class="am-icon-close"></i></small>
+                        <small class="am-u-sm-1 green blacktips0" style="display: none;"><i class="am-icon-check"></i></small>
+                    </div>
+                    <div class="am-form-group am-cf">
+                        <label class="am-u-sm-3 am-form-label">权限 ：</label>
+                        <div class="am-u-sm-8 am-u-end">
+                            <!-- onblur="validate(this,2,50,1)" -->
+                            <input type="text" id="updateController" name="controller" value="" required="" minlength="2" maxlength="50">
+                        </div>
+                        <small class="am-u-sm-1 red redtips1" style="display: none;"><i class="am-icon-close"></i></small>
+                        <small class="am-u-sm-1 green blacktips1" style="display: none;"><i class="am-icon-check"></i></small>
+                    </div>
+                </div>
+                <div class="am-modal-footer">
+                    <span class="am-modal-btn" data-am-modal-cancel>取消</span>
+                    <span class="am-modal-btn" data-am-modal-confirm>确定</span>
+                </div>
+            </div>
+        </div>
+        <script>
+            // TODO 修改
+            $(function () {
+                $('#doc-modal-list').find('.update').add('#doc-confirm-toggle').
+                    on('click', function () {
+                        $('#updateName').val($(this).parentsUntil('tbody').find('.qxname span').html())
+                        $('#updateController').val($(this).parentsUntil('tbody').find('.qxctlr').html())
+                        $('#my-update-confirm').modal({
+                            relatedTarget: this,
+                            onConfirm: function (options) {
+                                var $link = $(this.relatedTarget).one('a');
+                                var updateName = $('#updateName').val();
+                                var updateController = $('#updateController').val();
+                                // var msg = $link.length ? '你要删除的链接 ID 为 ' + $link.data('id') :
+                                //     'mull';
+                                // alert(msg);
+                                var data = { updateName: updateName, updateController: updateController, id: $link.data('id') }
+                                console.log(data)
+                                $.post("URL", data, function (result) {
+                                    $("span").html(result);
+                                    window.location.reload()
+                                });
+                            },
+
+                            closeOnConfirm: false,
+                            onCancel: function () {
+                                // alert('onCancel');
+                            }
+                        });
+                    });
+            });
+        </script>
+
+
+
+
+        <div class="am-modal am-modal-confirm" tabindex="-1" id="my-delete-confirm">
+            <div class="am-modal-dialog">
+                <div class="am-modal-hd">删除提示</div>
+                <div class="am-modal-bd">
+                    你，确定要删除这条记录吗？
+                </div>
+                <div class="am-modal-footer">
+                    <span class="am-modal-btn" data-am-modal-cancel>取消</span>
+                    <span class="am-modal-btn" data-am-modal-confirm>确定</span>
+                </div>
+            </div>
+        </div>
+
+
+        <script>
+            // TODO 删除
+            $(function () {
+                $('#doc-modal-list').find('.delete').add('#doc-confirm-toggle').
+                    on('click', function () {
+                        $('#my-delete-confirm').modal({
+                            relatedTarget: this,
+                            onConfirm: function (options) {
+                                var $link = $(this.relatedTarget).one('a');
+                                var msg = $link.length ? '你要删除的链接 ID 为 ' + $link.data('id') :
+                                    'mull';
+                                alert(msg);
+
+                                $.post("URL", { id: $link.data('id') }, function (result) {
+                                    // $("span").html(result);
+                                    window.location.reload()
+                                });
+                            },
+                            closeOnConfirm: false,
+                            onCancel: function () {
+                                // alert('onCancel');
+                            }
+                        });
+                    });
+            });
+        </script>
+
+        <!-- 弹框结束 -->
 
 
 
