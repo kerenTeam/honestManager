@@ -192,10 +192,23 @@ ul.tpl-dropdown-content .tpl-dropdown-menu-messages-item .menu-messages-content 
 .am-dimmer {
   z-index: 1200;
 }
-.am-modal {
-  position: absolute;
+.am-modal { 
   z-index: 1300;
-}
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5)
+ 
+} 
+/*.am-modal-dialog{
+  position: absolute!important;
+  left:50%!important;
+  -webkit-transform:translateX(-50%)!important;
+  top: 50%!important;
+  -webkit-transform:translateY(-50%)!important;
+
+}*/
 .am-datepicker-dropdown {
   z-index: 1400;
 }
