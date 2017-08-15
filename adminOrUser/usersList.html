@@ -38,7 +38,7 @@
             <div class="container-fluid am-cf">
                 <div class="am-u-sm-12 am-u-md-12 am-u-lg-9">
                     <div class="page-header-heading"><span class="am-icon-user-secret page-header-heading-icon"></span> 管理员 | 用户 <small> - 权限管理 </small></div>
-                    <p class="page-header-description">这个列表是用用来。dosage 这个列表是用用来。dosage 这个列表是用用来。dosage 这个列表是用用来。dosage</p>
+                    <p class="page-header-description"> 管理员进入界面 会显示 审核按钮 点击 审核 按钮更新下面的数据为 待审核职员 , userList 操作会有 通过审核 的按钮  </p>
                 </div>
             </div>
             <div class="row-content am-cf">
@@ -53,16 +53,21 @@
                             </div>
                             <div class="widget-body  am-fr">
 
+
                                 <div class="am-u-sm-12 am-u-md-6 am-u-lg-6">
-                                    <div class="am-form-group">
-                                        <div class="am-btn-toolbar">
-                                            <div class="am-btn-group am-btn-group-xs">
-                                                <button type="button" class="am-btn am-btn-default am-btn-success"><span class="am-icon-plus"></span> 新增</button>
-                                                <button type="button" class="am-btn am-btn-default am-btn-warning"><span class="am-icon-archive"></span> 审核</button>
+                                        <div class="am-form-group">
+                                            <div class="am-btn-toolbar">
+                                                <div class="am-btn-group am-btn-group-xs">
+                                                    <button type="button" class="am-btn am-btn-default am-btn-success"><a data-am-modal="{target: '#addUser',closeViaDimmer: 0, width:600}"><span class="am-icon-plus"></span> 新增</a></button>
+                                                     <!-- 非管理人员 无此按钮-->
+                                                    <button type="button" class="am-btn am-btn-default am-btn-warning"><a style="color:#fff" ><span class="am-icon-archive"></span> 审核 </a></button>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
                                 </div>
+
+                   
+
                                 <div class="am-u-sm-12 am-u-md-6 am-u-lg-3">
                                     <div class="am-form-group tpl-table-list-select">
                                         <select data-am-selected="{btnSize: 'sm'}">
@@ -97,7 +102,8 @@
                                                 <th width='10%'>QQ</th>
                                                 <th width='15%'>邮箱</th>
                                                 <th>详细信息</th>
-                                                <th width='6%'>操作</th>
+                                                <!-- 非管理人员 width="6%" -->
+                                                <th width='12%'>操作</th>
                                             </tr>
                                         </thead>
                                         <tbody id="doc-modal-list">
@@ -140,8 +146,12 @@
                                                 <td class="am-text-middle">
                                                     <div class="tpl-table-black-operation">
 
-                                                        <a href="javascript:;" data-id="1" class=" delete tpl-table-black-operation-del">
+                                                        <a href="javascript:;" data-id="1" class="delete tpl-table-black-operation-del">
                                                             <i class="am-icon-trash"></i> 删除
+                                                        </a>
+                                                        <!-- 非管理人员 无此按钮-->
+                                                        <a href="javascript:;" data-id="1" class="check" style="color:green">
+                                                            <i class="am-icon-check"></i> 过审
                                                         </a>
                                                     </div>
                                                 </td>
@@ -228,7 +238,20 @@
 
         <!-- 弹框开始 -->
         
+        <div class="am-modal am-modal-no-btn" tabindex="-1" id="addUser">
+                <div class="am-modal-dialog" style="background:rgb(58, 65, 68) !important ">
+                  <div class="am-modal-hd" style="color:aliceblue  !important"> 新增
+                    <a href="javascript: void(0)" class="am-close am-close-spin"  style="color:#fff !important" data-am-modal-close>&times;</a>
+                  </div>
+                  <div class="am-modal-bd">
+                    
+                    <iframe src="./userInfomation/info.html" name="text" target="_self" style="height:100vh;width:100%;overflow-y: scroll;" > </iframe>
 
+                  </div>
+                </div>
+        </div>
+
+        
 
         <div class="am-modal am-modal-no-btn" tabindex="-1" id="userInfomation-modal">
             <div class="am-modal-dialog" style="background:rgb(58, 65, 68) !important ">
@@ -429,6 +452,49 @@
                     });
             });
         </script>
+
+        <div class="am-modal am-modal-confirm" tabindex="-1" id="my-check-confirm">
+            <div class="am-modal-dialog">
+                <div class="am-modal-hd">过审核提示</div>
+                <div class="am-modal-bd">
+                    你，确定该职员通过审核吗？
+                </div>
+                <div class="am-modal-footer">
+                    <span class="am-modal-btn" data-am-modal-cancel>取消</span>
+                    <span class="am-modal-btn" data-am-modal-confirm>确定</span>
+                </div>
+            </div>
+        </div>
+
+
+        <script>
+            // TODO 删除
+            $(function () {
+                $('#doc-modal-list').find('.check').add('#doc-confirm-toggle').
+                    on('click', function () {
+                        $('#my-check-confirm').modal({
+                            relatedTarget: this,
+                            onConfirm: function (options) {
+                                var $link = $(this.relatedTarget).one('a');
+                                var msg = $link.length ? '该职员 ID 为 ' + $link.data('id') :
+                                    'mull';
+                                alert(msg);
+
+                                $.post("URL", { id: $link.data('id') }, function (result) {
+                                    // $("span").html(result);
+                                    window.location.reload()
+                                });
+                            },
+                            closeOnConfirm: false,
+                            onCancel: function () {
+                                // alert('onCancel');
+                            }
+                        });
+                    });
+            });
+        </script>
+
+
 
         <!-- 弹框结束 -->
 
