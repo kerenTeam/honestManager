@@ -26,13 +26,7 @@
 
 <body data-type="widgets">
     <script src="../../assets/js/theme.js"></script>
-
-    <div class="container-fluid am-cf ">
-        <div class="am-u-sm-12 am-u-md-12 am-u-lg-9">
-            <div class="page-header-heading"><span class="am-icon-user-secret page-header-heading-icon"></span> 管理员 | 用户 <small> - 职员列表 - 👨‍💼 &nbsp; 职员个人信息 </small></div>
-            <p class="page-header-description">这个列表是用用来。dosage 这个列表是用用来。dosage 这个列表是用用来。dosage 这个列表是用用来。dosage</p>
-        </div>
-    </div>
+ 
     <div class="row">
         <div class="am-u-sm-12 am-u-md-12 am-u-lg-12">
             <div class="widget am-cf">
@@ -45,12 +39,52 @@
                             
 
                             <div class="am-form-group">
-                                <label for="doc-vld-name-2">员工编号: </label>
-                                <input type="text" id="doc-vld-name-2" minlength="2" placeholder="输入姓名（至少 2 个字符）" required/>
+                                <label for="doc-vld-name-2">职能组: </label>
+                                <select data-am-selected="{searchBox: 1}">
+                                  <option value="a">Apple</option>
+                                  <option value="b">Banana</option>
+                                  <option value="o">Orange</option>
+                                  <option value="m">Mango</option>
+                                  <option value="phone">iPhone</option>
+                                  <option value="im">iMac</option>
+                                  <option value="mbp">Macbook Pro</option>
+                                </select>
                             </div>
                             <div class="am-form-group">
                                 <label for="doc-vld-name-2">姓名: </label>
                                 <input type="text" id="doc-vld-name-2" minlength="2" placeholder="输入姓名（至少 2 个字符）" required/>
+                            </div>
+                            <div class="am-form-group">
+                                <label>头 像：</label>
+                                <div class="am-u-end">
+                                    <div class="wx_type_img">
+                                        <!-- 图片实时预览 -->
+                                        <div id="preview" class="preview">
+                                            <img style="border-radius: 3px;width: 200px" src="../../assets/img/logo.png" class="am-img-responsive cardView">
+                                        </div>
+                                        <br>
+                                        <input type="file" id="imgUpload" name="img" onchange="previewFile()" class="am-btn am-btn-secondary">
+                                    </div>
+                                    <script>
+                                        function previewFile() {
+                                            var preview = document.querySelector('img');
+                                            var file = document.querySelector('input[type=file]').files[0];
+                                            console.log('fileqwee', file)
+                                            var reader = new FileReader();
+                                            reader.onloadend = function () {
+                                                preview.src = reader.result;
+                                            }
+                                            if (file) {
+                                                reader.readAsDataURL(file);
+                                            } else {
+                                                preview.src = "";
+                                            }
+                                        }
+                                    </script>
+                                    <span class="deleteImg am-text-center">删除</span>
+                                    <span class="red" style="font-size: 14px;"> 提示：图片格式支持：png、jpg、jpeg、gif，图片大小不超过800kb；</span>
+                                </div>
+
                             </div>
                             <div class="am-form-group">
                                 <label for="doc-vld-name-2">在职状态: </label>
