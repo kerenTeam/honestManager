@@ -132,7 +132,7 @@
                                                 <td class="am-text-middle">
                                                     <div class="tpl-table-black-operation">
 
-                                                        <a class="modal" data-id="" style="color:aqua "> <i class="am-icon-pencil"></i> 新增加 </a>
+                                                        <a class="modal" data-id="" data-am-modal="{target: '#userInfomation-modal', closeViaDimmer: 0, width:600}" style="color:aqua "> <i class="am-icon-pencil"></i> 新增加 </a>
 
                                                         <a class="modal" data-id="{id:001}" data-am-modal="{target: '#userInfomation-modal', closeViaDimmer: 0, width:600}" style="color:aqua "> 📱 武卫 </a>
                                                         <a class="modal" data-id="{id:002}" data-am-modal="{target: '#userInfomation-modal', closeViaDimmer: 0, width:600}" style="color:aquamarine"> 📱 郑俊芳 </a>
@@ -237,9 +237,9 @@
             $(function () {
                 $('#doc-modal-list').find('.modal')
                     .on('click', function () {
-                        $('#userInfomation-modal').modal({
-                            // $('iframe').attr('src', './companyLinkman.html?' + $(this).attr("data-id"));
-                        })
+
+                        $('iframe').attr('src', './companyLinkman.html?' + $(this).attr("data-id"));
+                        
                     });
             });
         </script>
