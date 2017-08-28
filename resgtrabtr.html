@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title></title>
+		<link rel="stylesheet" href="">
+		<script src="assets/js/jquery.min.js"></script>
+	</head>
+	<body>
+		<input name="" type="file" id="file"/>
+		<input type="text" id="inputImg"/>
+		<img src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=4122560844,1470181994&fm=27&gp=0.jpg" id="spin" style="display: none;"/>
+		<script>
+		$('#file').change(function(){
+		
+		var URL = 'http://192.168.199.191:7200/api/useraccount/abcd'
+		var headers = {
+									token:'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySW5mbyI6e30sImlhdCI6MTUwMzQ4MzA5MCwiZXhwIjoxNTAzNDkwMjkwfQ.x4ebQLxsW-AhVwLIgpri7QZOMEPqTwMvdPrDrkJSSqs',
+									city:1
+									}
+									var formData = new FormData();
+									formData.append('pics', $('#file')[0].files[0]);
+									formData.append('bucket', 'demo');
+		formData.append('porfix', 'aaa/bbb/');
+		$('#spin').css('display','block');
+									$.ajax({
+									url : URL,
+									type : 'POST',
+									headers: headers,
+									data : formData,
+									processData: false,
+									contentType: false,
+									success : function(data) {
+									
+		$('#spin').css('display','none');
+									$('#inputImg').val(data.data)
+									}
+									});
+		})
+		</script>
+		
+	</body>
+</html>

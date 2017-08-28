@@ -60,10 +60,41 @@
                                 <div class="am-btn-group am-btn-group-xs">
                                     <button type="button" class="am-btn am-btn-default am-btn-success"><a style="color:#fff"data-am-modal="{target: '#addAccount'}"><span class="am-icon-plus"></span> 新增</a></button>
 
-                                    <button type="button" class="am-btn am-btn-default am-btn-warning"><a style="color:#fff" ><span class="am-icon-archive"></span> 导入 </a></button>
+                                    <a href="javascript:;" class="am-btn am-btn-default am-btn-warning file">
+                                        <span class="am-icon-archive"></span> 导入
+                                        <input name="" type="file" id="projectFile"/> 
+                                    </a>                                    
                                 </div>
                             </div>
                         </div>
+                        <script>
+                        $('#projectFile').change(function () {
+
+                            var URL = 'http://localhost/'
+                            // var headers = {
+                            //     token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySW5mbyI6e30sImlhdCI6MTUwMzQ4MzA5MCwiZXhwIjoxNTAzNDkwMjkwfQ.x4ebQLxsW-AhVwLIgpri7QZOMEPqTwMvdPrDrkJSSqs',
+                            //     city: 1
+                            // }
+                            var formData = new FormData();
+                            formData.append('pics', $('#projectFile')[0].files[0]);
+                            // formData.append('bucket', 'demo');
+                            // formData.append('porfix', 'aaa/bbb/');
+                            // $('#spin').css('display', 'block');
+                            $.ajax({
+                                url: URL,
+                                type: 'POST',
+                                // headers: headers,
+                                data: formData,
+                                processData: false,
+                                contentType: false,
+                                success: function (data) {
+                                    alert('data')
+                                    // $('#spin').css('display', 'none');
+                                    // $('#inputImg').val(data.data)
+                                }
+                            });
+                        })
+                        </script>
                     </div>
                    
                     <div class="am-u-sm-3 am-u-md-3 am-u-lg-3">
