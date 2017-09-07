@@ -130,16 +130,16 @@
                                                 <td class="am-text-middle">
                                                     <div class="tpl-table-black-operation">
                                                         
-                                                        <a class="modalupdateTask" data-id="{id:A}" data-am-modal="{target: '#updateTask', closeViaDimmer: 0, width:650}" > 
+                                                        <a class="incomeModal" data-id="{id:A}" data-am-modal="{target: '#incomeModal', closeViaDimmer: 0, width:650}" > 
                                                             <i class="am-icon-pencil"></i> 收入表 
                                                         </a>
 
-                                                        <a class="modalupdateTask" data-id="{id:A}" data-am-modal="{target: '#updateTask', closeViaDimmer: 0, width:650}" > 
-                                                                <i class="am-icon-pencil"></i> 支出表 
+                                                        <a class="expenseModal" data-id="{id:A}" data-am-modal="{target: '#expenseModal', closeViaDimmer: 0, width:650}" > 
+                                                            <i class="am-icon-pencil"></i> 支出表 
                                                         </a>
 
-                                                        <a class="modalupdateTask" data-id="{id:A}" data-am-modal="{target: '#updateTask', closeViaDimmer: 0, width:650}" > 
-                                                                <i class="am-icon-pencil"></i> 开票 
+                                                        <a class="invoiceModal" data-id="{id:A}" data-am-modal="{target: '#invoiceModal', closeViaDimmer: 0, width:650}" > 
+                                                            <i class="am-icon-pencil"></i> 开票 
                                                         </a>
                                                         
                                                         <!-- 非管理人员 无此按钮-->
@@ -183,30 +183,43 @@
 
 
         <!-- 弹框开始 -->
-        
-        <div class="am-modal am-modal-no-btn" tabindex="-1" id="addUser">
-            <div class="am-modal-dialog" style="background:rgb(58, 65, 68) !important ">
-                <div class="am-modal-hd" style="color:aliceblue  !important"> 新增
-                    <a href="javascript: void(0)" class="am-close am-close-spin" style="color:#fff !important" data-am-modal-close>&times;</a>
-                </div>
-                <div class="am-modal-bd">
 
-                    <iframe src="./newTask.html"  target="_self" style="height:100vh;width:100%;overflow-y: scroll;"> </iframe>
 
+
+        <div class="am-modal am-modal-no-btn" tabindex="-1" id="incomeModal">
+                <div class="am-modal-dialog" style="background:rgb(58, 65, 68) !important ">
+                    <div class="am-modal-hd" style="color:aliceblue  !important"> 收入表
+                        <a href="javascript: void(0)" class="am-close am-close-spin" style="color:#fff !important" data-am-modal-close>&times;</a>
+                    </div>
+                    <div class="am-modal-bd">
+    
+                        <iframe src=""  target="_self" style="height:98vh;width:100%;overflow-y: scroll;"> </iframe>
+    
+                    </div>
                 </div>
             </div>
-        </div>
+    
+            <script>
+                $(function () {
+                    $('#doc-modal-list').find('.incomeModal')
+                        .on('click', function () {
+    
+                            $('iframe').attr('src', './income.html?' + $(this).attr("data-id"));
+                            
+                        });
+                });
+        </script>
 
 
 
-        <div class="am-modal am-modal-no-btn" tabindex="-1" id="userInfomation-modal">
+        <div class="am-modal am-modal-no-btn" tabindex="-1" id="expenseModal">
             <div class="am-modal-dialog" style="background:rgb(58, 65, 68) !important ">
-                <div class="am-modal-hd" style="color:aliceblue  !important"> 任务处理
+                <div class="am-modal-hd" style="color:aliceblue  !important"> 支出表
                     <a href="javascript: void(0)" class="am-close am-close-spin" style="color:#fff !important" data-am-modal-close>&times;</a>
                 </div>
                 <div class="am-modal-bd">
 
-                    <iframe src=""  target="_self" style="height:70vh;width:100%;overflow-y: scroll;"> </iframe>
+                    <iframe src=""  target="_self" style="height:98vh;width:100%;overflow-y: scroll;"> </iframe>
 
                 </div>
             </div>
@@ -214,24 +227,24 @@
 
         <script>
             $(function () {
-                $('#doc-modal-list').find('.modal')
+                $('#doc-modal-list').find('.expenseModal')
                     .on('click', function () {
 
-                        $('iframe').attr('src', './taskStates.html?' + $(this).attr("data-id"));
+                        $('iframe').attr('src', './expense.html?' + $(this).attr("data-id"));
                         
                     });
             });
         </script>
 
 
-        <div class="am-modal am-modal-no-btn" tabindex="-1" id="updateTask">
+        <div class="am-modal am-modal-no-btn" tabindex="-1" id="invoiceModal">
                 <div class="am-modal-dialog" style="background:rgb(58, 65, 68) !important ">
-                    <div class="am-modal-hd" style="color:aliceblue  !important"> 任务编辑
+                    <div class="am-modal-hd" style="color:aliceblue  !important"> 开票
                         <a href="javascript: void(0)" class="am-close am-close-spin" style="color:#fff !important" data-am-modal-close>&times;</a>
                     </div>
                     <div class="am-modal-bd">
     
-                        <iframe src=""  target="_self" style="height:70vh;width:100%;overflow-y: scroll;"> </iframe>
+                        <iframe src=""  target="_self" style="height:98vh;width:100%;overflow-y: scroll;"> </iframe>
     
                     </div>
                 </div>
@@ -239,11 +252,11 @@
     
             <script>
                 $(function () {
-                    $('#doc-modal-list').find('.modalupdateTask')
+                    $('#doc-modal-list').find('.invoiceModal')
                         .on('click', function () {
     
                             //$('iframe').attr('src', './updateTask.html?' + $(this).attr("data-id"));
-                            $('iframe').attr('src', './newTask.html?' + $(this).attr("data-id"));
+                            $('iframe').attr('src', './invoice.html?' + $(this).attr("data-id"));
                             
                         });
                 });

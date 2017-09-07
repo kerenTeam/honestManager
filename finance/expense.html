@@ -15,7 +15,8 @@
     <meta name="apple-mobile-web-app-title" content="Amaze UI" />
     <link rel="stylesheet" href="../assets/css/amazeui.min.css" />
     <link rel="stylesheet" href="../assets/css/app.css">
-    <script src="../assets/js/jquery-1.7.2.min.js"></script>
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/amazeui.min.js"></script>
 
     <style>
         label {
@@ -32,7 +33,7 @@
 
     <div class="container-fluid am-cf ">
         <div class="am-u-sm-12 am-u-md-12 am-u-lg-9">
-            <div class="page-header-heading"><span class="am-icon-user-secret page-header-heading-icon"></span> 客户管理 <small> - 单位列表 - &nbsp; 新增 </small></div>
+            <div class="page-header-heading"><span class="am-icon-user-secret page-header-heading-icon"></span> 财务管理 <small> - 支出表 - &nbsp; 编辑 </small></div>
             <p class="page-header-description">这个列表是用用来。dosage 这个列表是用用来。dosage 这个列表是用用来。dosage 这个列表是用用来。dosage</p>
         </div>
     </div>
@@ -48,68 +49,84 @@
 
 
                             <div class="am-form-group">
-                                <label for="doc-vld-name-2">名称: </label>
+                                <label for="doc-vld-name-2">科目代码B: </label>
                                 <input type="text" id="doc-vld-name-2" minlength="2" placeholder="输入姓名（至少 2 个字符）" required/>
                             </div>
                             <div class="am-form-group">
-                                <label for="doc-vld-name-2">行业: </label>
+                                <label for="doc-vld-name-2">合同编号: </label>
                                 <input type="text" id="doc-vld-name-2" minlength="2" placeholder="输入姓名（至少 2 个字符）" required/>
                             </div>
                             <div class="am-form-group">
-                                <label for="doc-vld-name-2">地址: </label>
-                                <input type="text" id="doc-vld-name-2" minlength="2" placeholder="输入姓名（至少 2 个字符）" required/>
-                            </div>
-
-                            <div class="am-form-group">
-                                <label for="doc-vld-name-2">邮编: </label>
-                                <input type="text" id="doc-vld-name-2" minlength="2" placeholder="输入姓名（至少 2 个字符）" required/>
-                            </div>
-
-
-                            <div class="am-form-group">
-                                <label for="doc-vld-name-2">位置选择: </label>
-
-                                                      
-
-                            </div>
-
-                            <div class="am-form-group">
-                                <label for="doc-vld-name-2">电话1: </label>
+                                <label for="doc-vld-name-2">支出金额: </label>
                                 <input type="text" id="doc-vld-name-2" minlength="2" placeholder="输入姓名（至少 2 个字符）" required/>
                             </div>
 
                             <div class="am-form-group">
-                                <label for="doc-vld-name-2">电话2: </label>
+                                <label for="doc-vld-name-2">凭证号: </label>
+                                <input type="text" id="doc-vld-name-2" minlength="2" placeholder="输入姓名（至少 2 个字符）" required/>
+                            </div>
+
+
+                            <div class="am-form-group">
+                                <label for="doc-vld-name-2">支付日期: </label>
+                                
+                                <div class="am-input-group am-datepicker-date" data-am-datepicker="{format: 'yyyy--mm--dd'}">
+                                        <span class="am-input-group-btn am-datepicker-add-on">
+                                                <button class="am-btn am-btn-default" type="button"><span class="am-icon-calendar"></span> </button>
+                                        </span>
+                                    <input type="text" class="am-form-field" placeholder="支付日期" readonly>
+
+                                </div>
+                            </div>
+
+                            <div class="am-form-group">
+                                <label for="doc-vld-name-2">报销人: </label>
                                 <input type="text" id="doc-vld-name-2" minlength="2" placeholder="输入姓名（至少 2 个字符）" required/>
                             </div>
                             <div class="am-form-group">
-                                <label for="doc-vld-name-2">传真: </label>
+                                <label for="doc-vld-name-2">批准人: </label>
                                 <input type="text" id="doc-vld-name-2" minlength="2" placeholder="输入姓名（至少 2 个字符）" required/>
                             </div>
                             <div class="am-form-group">
-                                <label for="doc-vld-name-2">税号: </label>
+                                <label for="doc-vld-name-2">支付方式: </label>
                                 <input type="text" id="doc-vld-name-2" minlength="2" placeholder="输入姓名（至少 2 个字符）" required/>
                             </div>
                             <div class="am-form-group">
-                                <label for="doc-vld-name-2">开户银行: </label>
+                                <label for="doc-vld-name-2">备注: </label>
                                 <input type="text" id="doc-vld-name-2" minlength="2" placeholder="输入姓名（至少 2 个字符）" required/>
                             </div>
                             <div class="am-form-group">
-                                <label for="doc-vld-name-2">账号: </label>
+                                <label for="doc-vld-name-2">项目名称自动查询: </label>
                                 <input type="text" id="doc-vld-name-2" minlength="2" placeholder="输入姓名（至少 2 个字符）" required/>
                             </div>
                             <div class="am-form-group">
-                                <label for="doc-vld-name-2">电子邮件: </label>
+                                <label for="doc-vld-name-2">合同金额: </label>
                                 <input type="text" id="doc-vld-name-2" minlength="2" placeholder="输入姓名（至少 2 个字符）" required/>
                             </div>
 
                             <div class="am-form-group">
-                                <label for="doc-vld-name-2">网址: </label>
+                                <label for="doc-vld-name-2">收款金额: </label>
                                 <input type="text" id="doc-vld-name-2" minlength="2" placeholder="输入姓名（至少 2 个字符）" required/>
                             </div>
 
                             <div class="am-form-group">
-                                <label for="doc-vld-name-2">其它: </label>
+                                <label for="doc-vld-name-2">评审费: </label>
+                                <input type="text" id="doc-vld-name-2" minlength="2" placeholder="输入姓名（至少 2 个字符）" required/>
+                            </div>
+                            <div class="am-form-group">
+                                <label for="doc-vld-name-2">业务费: </label>
+                                <input type="text" id="doc-vld-name-2" minlength="2" placeholder="输入姓名（至少 2 个字符）" required/>
+                            </div>
+                            <div class="am-form-group">
+                                <label for="doc-vld-name-2">技术提成: </label>
+                                <input type="text" id="doc-vld-name-2" minlength="2" placeholder="输入姓名（至少 2 个字符）" required/>
+                            </div>
+                            <div class="am-form-group">
+                                <label for="doc-vld-name-2">个人提成: </label>
+                                <input type="text" id="doc-vld-name-2" minlength="2" placeholder="输入姓名（至少 2 个字符）" required/>
+                            </div>
+                            <div class="am-form-group">
+                                <label for="doc-vld-name-2">TMP: </label>
                                 <input type="text" id="doc-vld-name-2" minlength="2" placeholder="输入姓名（至少 2 个字符）" required/>
                             </div>
 
