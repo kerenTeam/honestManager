@@ -49,6 +49,7 @@
         .xiaozu a{margin-right: 20px}
         .xiaozu2{padding-left: 32px;}
         .taskConXiao{border-bottom: 1px solid #e6e3e3;padding-bottom: 15px;margin-bottom: 15px;}
+        .bianji{margin-right: 15%;float: right;color: #0e90d2}
 
     </style>
 </head>
@@ -80,6 +81,7 @@
                                     <a>李四 <img src="../assets/img/shanchu.svg"> </a>
                                     <a>王二 <img src="../assets/img/shanchu.svg"></a>
                                     <a>王二 <img src="../assets/img/shanchu.svg"></a>
+                                    <input class="bianji" id="bianji1" type="button" value="编辑">
                                 </p>
                                 <div class="p1 xiaozu xiaozu2 clearfix">添加小组人员：
                                     <div class="" style="display: inline-block;">
@@ -104,6 +106,8 @@
                                           <option value="mbp">Macbook Pro</option>
                                         </select>
                                     </div>
+
+                                    <div style="display: inline-block;margin-left: 10px"><input style="float: initial" class="bianji" type="button" value="确定"></div>
                                 </div>
                             </div>
                             <div class="taskCon">
@@ -370,6 +374,8 @@
                 var widthAll = scroll[i].offsetWidth;
                 mask.style.width = barS.style.left = (widthAll*maskSpanNum)/100 - barS.offsetWidth + 'px';
             }
+
+            // 编辑项目人员
         }
 
         // 拖动进度条        
