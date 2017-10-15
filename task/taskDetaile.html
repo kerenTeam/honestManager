@@ -78,12 +78,21 @@
                                 <h4>项目人员</h4>
                                 <p class="p1">负责人： <a>游总</a></p>
                                 <p class="p1 xiaozu">小组人员：
-                                    <a>李四 <img src="../assets/img/shanchu.svg"> </a>
-                                    <a>王二 <img src="../assets/img/shanchu.svg"></a>
-                                    <a>王二 <img src="../assets/img/shanchu.svg"></a>
+                                    <a>
+                                        李四 
+                                        <img class="showBian" style="display: none" onclick="deleteFun(this)" src="../assets/img/shanchu.svg"> 
+                                    </a>
+                                    <a>
+                                        王二 
+                                        <img class="showBian" style="display: none" onclick="deleteFun(this)" src="../assets/img/shanchu.svg">
+                                    </a>
+                                    <a>
+                                        王二 
+                                        <img class="showBian" style="display: none" onclick="deleteFun(this)" src="../assets/img/shanchu.svg">
+                                    </a>
                                     <input class="bianji" id="bianji1" type="button" value="编辑">
                                 </p>
-                                <div class="p1 xiaozu xiaozu2 clearfix">添加小组人员：
+                                <div class="p1 xiaozu xiaozu2 clearfix showBian" style="display: none">添加小组人员：
                                     <div class="" style="display: inline-block;">
                                         <select data-am-selected="{searchBox: 0}" style="display: none;" class="am-field-valid">
                                           <option value="a">选择工作</option>
@@ -107,7 +116,7 @@
                                         </select>
                                     </div>
 
-                                    <div style="display: inline-block;margin-left: 10px"><input style="float: initial" class="bianji" type="button" value="确定"></div>
+                                    <div style="display: inline-block;margin-left: 10px"><input style="float: initial" class="bianji" type="button" value="确定添加"></div>
                                 </div>
                             </div>
                             <div class="taskCon">
@@ -352,6 +361,18 @@
                 </div>
               </div>
             </div>
+            <div class="am-modal am-modal-confirm" tabindex="-1" id="my-confirm">
+                <div class="am-modal-dialog">
+                    <div class="am-modal-hd">提示</div>
+                    <div class="am-modal-bd">
+                    你，确定要删除这条记录吗？
+                    </div>
+                    <div class="am-modal-footer">
+                    <span class="am-modal-btn" data-am-modal-cancel>取消</span>
+                    <span class="am-modal-btn" data-am-modal-confirm>确定</span>
+                    </div>
+                </div>
+            </div>
              <!-- 模态框结束 -->
         </div>
 
@@ -376,6 +397,36 @@
             }
 
             // 编辑项目人员
+            var bianji1 = document.getElementById('bianji1');
+            $('#bianji1').click(function(){
+                if(document.getElementsByClassName('showBian')[0].style.display == 'none'){
+                    this.value = '取消编辑';
+                    $('.showBian').css('display','inline-block');
+                }else{
+                    $('.showBian').css('display','none');
+                    this.value = '编辑';
+                }
+                
+            })
+
+        }
+        // 删除人员
+        function deleteFun(obj){
+
+            var objNowPP = obj.parentNode.parentNode;
+            var objNowP = obj.parentNode;
+            objNowPP.removeChild(objNowP);
+            
+            // $('#my-confirm').modal({
+            //     onConfirm: function() {
+            //         objNowPP.removeChild(objNowP);
+            //     },
+            //     onCancel: function() {
+                    
+            //     }
+            // });
+            
+            
         }
 
         // 拖动进度条        
