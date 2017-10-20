@@ -131,7 +131,8 @@
                                     <div style="display: inline-block;margin-left: 10px"><input style="float: initial" class="bianji" type="button" value="确定添加"></div>
                                 </div>
                             </div>
-                            <div class="taskCon">
+                            <!-- 新2/ -->
+                            <div class="taskCon" id="ziliaoWrap">
                                 <h4>项目节点</h4>
                                 <!-- 1. 资料收集 -->
                                 <div class="taskConDetaile">
@@ -141,7 +142,7 @@
                                     </div>
                                     <div class="taskConF1">
                                         <div class="scroll" id="scroll">
-                                            <div class="bar barS" id="bar"> </div>
+                                            <div dataId = "00000" class="bar barS" id="bar"> </div>
                                             <div class="mask" id="mask"></div>
                                             <span class="maskSpan">10%</span>
                                         </div>
@@ -190,16 +191,27 @@
                                     <div class="taskConF1 ">
                                         <a class="taskConF1A">2017-6-30</a>
                                         <a class="taskConF1A">
+                                            
                                             <!-- <label>
                                                <input type="file" name=""> 
                                                <input type="button" value="上传资料" name="">
                                             </label> -->
+                                            
                                             <button
+                                                dataId = '1111'
                                                 type="button"
-                                                class="am-btn am-btn-primary am-btn2"
-                                                data-am-modal="{target: '#doc-modal-1', closeViaDimmer: 0, width: 420, height: 240}">
+                                                class="am-btn am-btn-primary am-btn2 ziliaoBtn"
+                                            >
                                                 上传资料
                                             </button>
+                                            <!-- <button
+                                                dataId = '778787'
+                                                type="button"
+                                                class="am-btn am-btn-primary am-btn2 ziliaoBtn"
+                                                data-am-modal="{target: '#doc-modal-1',                  closeViaDimmer: 0, width: 420, height: 240}"
+                                            >
+                                                上传资料
+                                            </button> -->
                                         </a>
                                         
                                         <a class="taskConF1A"><img class="TCimg1 doc-prompt-toggle" src="../assets/img/liaotian.svg"></a>
@@ -221,10 +233,14 @@
                                     <div class="taskConF1 ">
                                         <a class="taskConF1A">2017-6-30</a>
                                         <a class="taskConF1A">
-                                            <label>
-                                               <input type="file" name=""> 
-                                               <input type="button" value="上传资料" name="">
-                                            </label>
+                                            <!-- 改新2 -->
+                                            <button
+                                                dataId = '222'
+                                                type="button"
+                                                class="am-btn am-btn-primary am-btn2 ziliaoBtn"
+                                            >
+                                                上传资料
+                                            </button>
                                         </a>
                                         <a class="taskConF1A"><img class="TCimg1 doc-prompt-toggle" src="../assets/img/liaotian.svg"></a>
                                     </div>
@@ -413,11 +429,13 @@
                         <textarea id="zimiaoshu"></textarea>
                     </div>
                     <div>
+                            <!-- 新2 -->
                         <button
+                            data-am-modal-confirm
                             type="button"
                             style="margin:0 auto"
-                            onclick="upZiliaoFun(this)"
-                            class="am-btn am-btn-primary">
+                            id='shangchaungBtn'
+                            class="am-btn am-btn-primary ">
                             确认上传
                         </button>
                     </div>
@@ -436,6 +454,37 @@
     <script src="../assets/js/amazeui.min.js"></script>
     <script src="../assets/js/app.js"></script>
     <script>  
+    // 上传资料 新2
+        $('#ziliaoWrap').find('.ziliaoBtn').add('#doc-confirm-toggle').on('click', function () {
+            var nowID = $(this).attr('dataId');
+                
+            $('#doc-modal-1').modal({
+                relatedTarget: this,
+                onConfirm: function (options) {
+                },
+                closeOnConfirm: false,
+                onCancel: function () { 
+                }
+            });
+
+            document.getElementById('shangchaungBtn').onclick = function(){
+                upZiliaoFun(this);
+            }
+            function upZiliaoFun(obj){
+                var ziwenjian = $(obj).parentsUntil('ziliaoDiv').find('#ziwenjian')[0].files[0];//文件
+                var ziwenming = $(obj).parentsUntil('ziliaoDiv').find('#ziwenming')[0].value;//文件名
+                var zimiaoshu = $(obj).parentsUntil('ziliaoDiv').find('#zimiaoshu')[0].value;//文件描述  
+                var nowId = nowID;
+
+                console.log('文件：'+ziwenjian);
+                console.log('文件名：'+ziwenming);
+                console.log('文件描述：'+zimiaoshu);
+                console.log('id'+nowId);
+
+            }
+        }); 
+
+
         // 显示既有进度条进度
         window.onload = function(){
             var scroll = document.getElementsByClassName('scroll');
@@ -473,17 +522,7 @@
             
             
         }
-        // 上传资料 新1
-        function upZiliaoFun(obj){
-            var ziwenjian = $(obj).parentsUntil('ziliaoDiv').find('#ziwenjian')[0].files[0];//文件
-            var ziwenming = $(obj).parentsUntil('ziliaoDiv').find('#ziwenming')[0].value;//文件名
-            var zimiaoshu = $(obj).parentsUntil('ziliaoDiv').find('#zimiaoshu')[0].value;//文件描述  
-
-            console.log('文件：'+ziwenjian);
-            console.log('文件名：'+ziwenming);
-            console.log('文件描述：'+zimiaoshu);
-
-        }
+       
 
         // 拖动进度条        
         $('.barS').mousedown(function(event){
@@ -510,11 +549,13 @@
 
             // 拖动向后发送数据(新1)
             var baifen = parseInt(barleft/(scroll.offsetWidth-that.offsetWidth) * 100);//百分比数据
-            document.onmouseup = function(){
+            that.onmouseup = function(){
                 document.onmousemove = null; //弹起鼠标不做任何操作
                 var rJindu = confirm("确认修改进度！");
+                var nowId = that.getAttribute('dataId');
                 if (rJindu) {
                     alert('进度'+baifen);
+                    alert('id'+nowId);
                 }
                 // ajax......
 
